@@ -6,28 +6,27 @@
 from dataclasses import dataclass
 import scrapy
 
-@dataclass
 class CountryItem(scrapy.Item):
     """
     Item container for scraped data from 
     information of a country
     """
     # Fields for extracted data
-    name_country : str
-    area : int
-    population : int
-    real_gdp : int
-    unemployment_rate : float
-    taxes : float
-    debt_external : int
-    exchange_rates : float
-    internet_users : int
-    internet_percent : float
-    airports : int
-    merchant_marine : int
-    militar_expenditures : float
+    name_country = scrapy.Field()
+    area = scrapy.Field()
+    population = scrapy.Field()
+    real_gdp = scrapy.Field()
+    unemployment_rate = scrapy.Field()
+    taxes = scrapy.Field()
+    debt_external = scrapy.Field()
+    exchange_rates = scrapy.Field()
+    internet_users = scrapy.Field()
+    internet_percent = scrapy.Field()
+    airports = scrapy.Field()
+    merchant_marine = scrapy.Field()
+    militar_expenditures = scrapy.Field()
     
     # Field for extracted flag images
-    image_urls : str
-    images : str
-    image_name : str
+    image_urls = scrapy.Field()
+    images = scrapy.Field()
+    image_name = scrapy.Field()
