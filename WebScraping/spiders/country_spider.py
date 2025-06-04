@@ -8,22 +8,22 @@ from .LinksCountries import GetLinksCountries
 
 class CountrySpider(scrapy.Spider):
     name = 'CountryInformation'
+    meta_playwright = {'playwright': True,
+                       'playwright_include_page': True,
+                       'playwright_page_methods': [PageMethod('wait_for_timeout',2.5*1000)]}
 
     # For testing
     start_urls = ['https://www.cia.gov/the-world-factbook/countries/russia/',
-                  'https://www.cia.gov/the-world-factbook/countries/bolivia/',
+                  #'https://www.cia.gov/the-world-factbook/countries/bolivia/',
                   'https://www.cia.gov/the-world-factbook/countries/canada/',
-                  'https://www.cia.gov/the-world-factbook/countries/greece/',
-                  'https://www.cia.gov/the-world-factbook/countries/united-states-pacific-island-wildlife-refuges/'] 
+                  #'https://www.cia.gov/the-world-factbook/countries/greece/',
+                  #'https://www.cia.gov/the-world-factbook/countries/united-states-pacific-island-wildlife-refuges/',
+                 ] 
     # start_urls = GetLinksCountries()
 
     async def start(self):
         for url in self.start_urls:
-            yield scrapy.Request(url,callback=self.parse_data,
-                                 meta={'playwright': True,
-                                       'playwright_include_page': True,
-                                       'playwright_page_methods': [PageMethod('wait_for_timeout',2*1000)]},
-                                 )
+            yield scrapy.Request(url,callback=self.parse_data,meta=self.meta_playwright)
     
     fields_data = ['country-name','area','population','real-gdp-per-capita',
                    'unemployment-rate','taxes-and-other-revenues','debt-external',
@@ -34,9 +34,23 @@ class CountrySpider(scrapy.Spider):
     element_data = '//a[@href="/the-world-factbook/field/{}/"]/../following-sibling::p'
     async def parse_data(self,response):
         country_data = CountryItem()
+
         for field_data in self.fields_data:
             country_data[self.fields_country[field_data]] = response.xpath(self.element_data.format(field_data)).get()
 
+        yield scrapy.Request(response.url+'flag/',callback=self.parse_image,meta={**self.meta_playwright,'country-data':country_data})
+
+        page = response.meta['playwright_page']
+        await page.close()
+
+    async def parse_image(self,response):
+        country_data = response.meta['country-data']
+
+        image_uri = response.xpath('//img[starts-with(@src,"/the-world-factbook/static/")]/@src').get()
+        country_data['image_urls'] = response.urljoin(image_uri)
+        country_data['images'] = response.xpath('//div[contains(@class,"image-detail-block-caption")]').get()
+
         yield country_data
+        
         page = response.meta['playwright_page']
         await page.close()
