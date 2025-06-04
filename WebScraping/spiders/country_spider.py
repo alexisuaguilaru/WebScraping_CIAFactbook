@@ -47,7 +47,7 @@ class CountrySpider(scrapy.Spider):
         country_data = response.meta['country-data']
 
         image_uri = response.xpath('//img[starts-with(@src,"/the-world-factbook/static/")]/@src').get()
-        country_data['image_urls'] = response.urljoin(image_uri)
+        country_data['image_urls'] = [response.urljoin(image_uri)]
         country_data['images'] = response.xpath('//div[contains(@class,"image-detail-block-caption")]').get()
 
         yield country_data

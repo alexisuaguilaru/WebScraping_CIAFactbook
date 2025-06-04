@@ -6,7 +6,14 @@
 
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
+from scrapy.pipelines.images import ImagesPipeline
+
+import re
 
 class ProcessingCountry:
     def process_item(self, item, spider):
         return item
+    
+class ImagesCountry(ImagesPipeline):
+    def file_path(self, request, response=None, info=None, *, item=None):
+        return re.sub(r'/','',f"{''.join(item['country_name'])}.jpg")

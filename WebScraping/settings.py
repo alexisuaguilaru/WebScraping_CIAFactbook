@@ -65,8 +65,13 @@ DOWNLOAD_DELAY = 2
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   "WebScraping.pipelines.ProcessingCountry": 100,
+    "WebScraping.pipelines.ProcessingCountry": 100,
+    "WebScraping.pipelines.ImagesCountry": 200,
 }
+
+# Configuration for ImagesPipeline
+IMAGES_STORE = './Dataset/Images/'
+IMAGES_RESULT_FIELD = 'image_name'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
