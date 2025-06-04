@@ -3,7 +3,6 @@
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/items.html
 
-from dataclasses import dataclass
 import scrapy
 
 class CountryItem(scrapy.Item):
@@ -12,21 +11,21 @@ class CountryItem(scrapy.Item):
     information of a country
     """
     # Fields for extracted data
-    name_country = scrapy.Field()
+    country_name = scrapy.Field() # Short country name
     area = scrapy.Field()
     population = scrapy.Field()
-    real_gdp = scrapy.Field()
+    real_gdp_per_capita = scrapy.Field()
     unemployment_rate = scrapy.Field()
-    taxes = scrapy.Field()
+    taxes_and_other_revenues = scrapy.Field()
     debt_external = scrapy.Field()
     exchange_rates = scrapy.Field()
-    internet_users = scrapy.Field()
+    internet_users = scrapy.Field() # Derived feature
     internet_percent = scrapy.Field()
     airports = scrapy.Field()
     merchant_marine = scrapy.Field()
-    militar_expenditures = scrapy.Field()
+    military_expenditures = scrapy.Field()
     
     # Field for extracted flag images
     image_urls = scrapy.Field()
     images = scrapy.Field()
-    image_name = scrapy.Field()
+    image_name = scrapy.Field() # Populate by Scrapy
