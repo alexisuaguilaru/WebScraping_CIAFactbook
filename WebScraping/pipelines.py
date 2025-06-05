@@ -18,8 +18,8 @@ class ProcessingCountry:
                    'merchant-marine','military-expenditures']
     fields_country = {field_data:re.sub(r'-','_',field_data) for field_data in fields_data}
     def process_item(self, item, spider):
-        # for field_country in self.fields_country.values():
-                # eval(f"self.clean__{field_country}(item)")
+        for field_country in self.fields_country.values():
+                eval(f"self.clean__{field_country}(item)")
 
         return item
     
@@ -111,7 +111,7 @@ class ProcessingCountry:
         item[_field] = self.__ExtractNumericValue(item,_field,int)
 
     def clean__military_expenditures(self,item) -> None:
-        _field = 'merchant_marine'
+        _field = 'military_expenditures'
         item[_field] = self.__ExtractNumericValue(item,_field,float)
 
     """
@@ -125,7 +125,7 @@ class ProcessingCountry:
             get_numeric_value = self.__GetFloatValue
 
         if item[field]:
-            _extracted_value = get_numeric_value(item,field,index).group()
+            _extracted_value = get_numeric_value(item,field,index)
             if _extracted_value:
                 _extracted_value = _extracted_value.group()
                 _extracted_value = self.__CleanNumericValue(_extracted_value)

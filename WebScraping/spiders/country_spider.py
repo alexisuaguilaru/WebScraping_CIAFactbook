@@ -13,15 +13,15 @@ class CountrySpider(scrapy.Spider):
                        'playwright_page_methods': [PageMethod('wait_for_timeout',2.5*1000)]}
 
     # For testing
-    # start_urls = [
-                #   'https://www.cia.gov/the-world-factbook/countries/russia/',
-                #   'https://www.cia.gov/the-world-factbook/countries/bolivia/',
+    start_urls = [
+                  'https://www.cia.gov/the-world-factbook/countries/russia/',
+                  'https://www.cia.gov/the-world-factbook/countries/bolivia/',
                 #   'https://www.cia.gov/the-world-factbook/countries/canada/',
                 #   'https://www.cia.gov/the-world-factbook/countries/greece/',
                 #   'https://www.cia.gov/the-world-factbook/countries/united-states-pacific-island-wildlife-refuges/',
                 #   'https://www.cia.gov/the-world-factbook/countries/british-indian-ocean-territory/',
                 #   'https://www.cia.gov/the-world-factbook/countries/niger/',
-                #  ] 
+                 ] 
     
     # For deployment
     # start_urls = GetLinksCountries()
