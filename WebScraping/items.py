@@ -8,7 +8,8 @@ import scrapy
 class CountryItem(scrapy.Item):
     """
     Item container for scraped data from 
-    information of a country
+    information of a country in 
+    https://www.cia.gov/the-world-factbook/
     """
     # Fields for extracted data
     country_name = scrapy.Field() # Short country name
@@ -27,5 +28,6 @@ class CountryItem(scrapy.Item):
     
     # Field for extracted flag images
     image_urls = scrapy.Field()
-    images = scrapy.Field()
-    image_name = scrapy.Field() # Populate by Scrapy
+    images = scrapy.Field() # Description and notes of country's flag
+    image_name = scrapy.Field() # Name country's flag
+    image_dump = scrapy.Field() # Populate by Scrapy

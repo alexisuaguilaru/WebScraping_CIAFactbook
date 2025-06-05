@@ -71,7 +71,7 @@ ITEM_PIPELINES = {
 
 # Configuration for ImagesPipeline
 IMAGES_STORE = './Dataset/Images/'
-IMAGES_RESULT_FIELD = 'image_name'
+IMAGES_RESULT_FIELD = 'image_dump'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

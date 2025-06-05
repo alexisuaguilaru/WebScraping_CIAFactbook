@@ -5,19 +5,28 @@
 
 
 # useful for handling different item types with a single interface
-from itemadapter import ItemAdapter
+
 from scrapy.pipelines.images import ImagesPipeline
 
 import re
 
 class ProcessingCountry:
+    """
+    Pipeline for cleaning each data field of 
+    a CountryItem
+    """
 
+    # Data field being extracted for a country
     fields_data = ['country-name','area','population','real-gdp-per-capita',
                    'unemployment-rate','taxes-and-other-revenues','debt-external',
                    'exchange-rates','internet-percent','internet-users','airports',
-                   'merchant-marine','military-expenditures']
+                   'merchant-marine','military-expenditures','images']
     fields_country = {field_data:re.sub(r'-','_',field_data) for field_data in fields_data}
     def process_item(self, item, spider):
+        """
+        Method for cleaning each data field of a 
+        CountryItem and get its value
+        """
         for field_country in self.fields_country.values():
                 eval(f"self.clean__{field_country}(item)")
 
@@ -114,6 +123,11 @@ class ProcessingCountry:
         _field = 'military_expenditures'
         item[_field] = self.__ExtractNumericValue(item,_field,float)
 
+    def clean__images(self,item) -> None:
+        _field = 'images'
+        # Deal with descriptions and notes for country flags
+        item[_field] = item[_field][0] + '\n' + ''.join(item[_field][1:])
+
     """
     Auxiliar functions for getting certain values and other routines
     """
@@ -146,11 +160,23 @@ class ProcessingCountry:
     def __CleanNumericValue(self,value:str) -> str:
         return re.sub(r',','',value)
 
-    
+
 class ImagesCountry(ImagesPipeline):
+    """
+    Pipeline for downloading the flag image 
+    of a country 
+    """
+
     def file_path(self,request,response=None,info=None,*,item=None):
-        if item['country_name'][1]:
-            _name = item['country_name'][1]
-        else:
-            _name = item['country_name'][0]
-        return f'{_name.strip().lower()}.jpg'
+        """
+        Method for defining the file name for the download 
+        flag country image
+        """
+
+        _image_name = item['country_name']
+        _image_name = re.sub(r"[\(\),']",'',_image_name)
+        _image_name = '-'.join(_image_name.lower().split())
+        
+        _image_name = f'{_image_name}.jpg'
+        item['image_name'] = _image_name
+        return _image_name
