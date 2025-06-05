@@ -18,7 +18,9 @@ def GetLinksCountries() -> Iterator[str]:
 
     response_countries = requests.get(COUNTRY_LIST).json()['data']['countries']['nodes']
     for country_name in response_countries:
-        yield BASE_URL.format(GetValidCountryName(country_name['name']))
+        _name = GetValidCountryName(country_name['name'])
+        if _name != 'world':
+            yield BASE_URL.format(_name)
 
 def GetValidCountryName(CountryName:str) -> str:
     """
@@ -35,7 +37,10 @@ def GetValidCountryName(CountryName:str) -> str:
     clean_country_name : str
         Clean and valid country's name
     """
-    PatterCleanName = r"[\(\),']"
-    clean_name = re.sub(PatterCleanName,'',CountryName)
-    words_contry = map(str.lower,clean_name.split())
-    return '-'.join(words_contry)
+    PatternCleanName = r"[\(\),']"
+    clean_name = re.sub(PatternCleanName,'',CountryName)
+    words_country = map(str.lower,clean_name.split())
+    return '-'.join(words_country)
+
+if __name__ == '__main__':
+    print(*list(GetLinksCountries()),sep='\n')
