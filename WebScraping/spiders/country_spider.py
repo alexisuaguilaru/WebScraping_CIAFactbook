@@ -35,7 +35,7 @@ class CountrySpider(scrapy.Spider):
                    'exchange-rates','internet-users','airports',
                    'merchant-marine','military-expenditures']
     fields_country = {field_data:re.sub(r'-','_',field_data) for field_data in fields_data}
-    fields_country['internet_users'] = 'internet_percent'
+    fields_country['internet-users'] = 'internet_percent'
     element_data = '//a[@href="/the-world-factbook/field/{}/"]/../following-sibling::p/text()'
     async def parse_data(self,response):
         country_data = CountryItem()
