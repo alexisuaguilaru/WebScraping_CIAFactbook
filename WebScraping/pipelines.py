@@ -126,7 +126,7 @@ class ProcessingCountry:
     def clean__images(self,item) -> None:
         _field = 'images'
         # Deal with descriptions and notes for country flags
-        item[_field] = item[_field][0] + '\n' + ''.join(item[_field][1:])
+        item[_field] = ''.join(item[_field])
 
     """
     Auxiliar functions for getting certain values and other routines

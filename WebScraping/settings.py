@@ -97,9 +97,27 @@ IMAGES_RESULT_FIELD = 'image_dump'
 # Set settings whose default value is deprecated to a future-proof value
 FEED_EXPORT_ENCODING = "utf-8"
 FEEDS = {
-    '__test.json':{
-        'format': 'json',
-        'overwrite': True
+    './Dataset/Dataset_Raw.csv':{
+        'format': 'csv',
+        'overwrite': True,
+        'fields': [
+                    'country_name',
+                    'area',
+                    'population',
+                    'real_gdp_per_capita',
+                    'unemployment_rate',
+                    'taxes_and_other_revenues',
+                    'debt_external',
+                    'exchange_rates',
+                    'internet_users',
+                    'internet_percent',
+                    'airports',
+                    'merchant_marine',
+                    'military_expenditures',
+                    'image_urls',
+                    'images',
+                    'image_name',
+                  ],
     }
 }
 
