@@ -2,9 +2,11 @@ import scrapy
 from WebScraping.items import CountryItem
 from scrapy_playwright.page import PageMethod
 
+import logging
 import re
 
 from .LinksCountries import GetLinksCountries
+
 
 class CountrySpider(scrapy.Spider):
     """
@@ -16,24 +18,18 @@ class CountrySpider(scrapy.Spider):
     name = 'CountryInformation'
     meta_playwright = {'playwright': True,
                        'playwright_include_page': True,
-                       'playwright_page_methods': [PageMethod('wait_for_timeout',2.5*1000)]}
+                       'playwright_page_methods': [PageMethod('wait_for_timeout',4*1000)]}
 
     # For testing
     start_urls = [
-                  'https://www.cia.gov/the-world-factbook/countries/russia/',
-                  'https://www.cia.gov/the-world-factbook/countries/bolivia/',
-                #   'https://www.cia.gov/the-world-factbook/countries/canada/',
-                #   'https://www.cia.gov/the-world-factbook/countries/greece/',
-                #   'https://www.cia.gov/the-world-factbook/countries/united-states-pacific-island-wildlife-refuges/',
-                #   'https://www.cia.gov/the-world-factbook/countries/british-indian-ocean-territory/',
-                #   'https://www.cia.gov/the-world-factbook/countries/niger/',
+                  'https://www.cia.gov/the-world-factbook/countries/gaza-strip/',
                  ] 
     
     # For deployment
     # start_urls = GetLinksCountries()
 
     async def start(self):
-        for url in self.start_urls:
+        for counter_urls , url in enumerate(self.start_urls,1):
             yield scrapy.Request(url,callback=self.parse_data,meta=self.meta_playwright)
     
     # Data field being extracted for a country
@@ -51,13 +47,24 @@ class CountrySpider(scrapy.Spider):
         from https://www.cia.gov/the-world-factbook/ without 
         process (transform) it of a country
         """
+        logging.info(f'[COUNTRY BEING EXTRACTED] {response.url}')
+        
         country_data = CountryItem()
 
         for field_data in self.fields_data:
             country_data[self.fields_country[field_data]] = response.xpath(self.element_data.format(field_data)).getall()
+        
+        country_data['country_url'] = response.url
 
-        # Request for adding image relative data to a CountryItem
-        yield scrapy.Request(response.url+'flag/',callback=self.parse_image,meta={**self.meta_playwright,'country-data':country_data})
+        if response.xpath('//div[@class="card-gallery__text-container"]/div/span/text()').get() == 'Country Flag': # Whether there is an actual flag image to donwload
+            # Request for adding image relative data to a CountryItem
+            yield scrapy.Request(response.url+'flag/',callback=self.parse_image,meta={**self.meta_playwright,'country-data':country_data})
+        else:
+            logging.info(f'[COUNTRY WITHOUT FLAG IMAGE] {response.url}')
+            country_data['image_urls'] = []
+            country_data['images'] = ''
+            country_data['image_name'] = '404.jpg'
+            yield country_data
 
         page = response.meta['playwright_page']
         await page.close()

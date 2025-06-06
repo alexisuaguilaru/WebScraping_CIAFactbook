@@ -8,6 +8,7 @@
 
 from scrapy.pipelines.images import ImagesPipeline
 
+import logging
 import re
 
 class ProcessingCountry:
@@ -28,7 +29,10 @@ class ProcessingCountry:
         CountryItem and get its value
         """
         for field_country in self.fields_country.values():
+            try:
                 eval(f"self.clean__{field_country}(item)")
+            except:
+                logging.info(f'[FIELD ERROR {field_country}] {item["country_url"]}')
 
         return item
     
@@ -40,11 +44,14 @@ class ProcessingCountry:
     def clean__country_name(self,item) -> None:
         _field = 'country_name'
 
-        _name = item[_field][1].strip()
-        if _name != 'none':
-            item[_field] = _name # Use short convention form
-        else:
-            item[_field] = item[_field][0].strip() # Otherwise use long convention form
+        if item[_field]:
+            _name = item[_field][1].strip()
+            if _name == 'none': # Use short convention form if exists
+                item[_field] = item[_field][0].strip() # Otherwise use long convention form
+        else: # Every country has a short or long name but 'world' not
+            _name = 'World'
+
+        item[_field] = _name
 
     def clean__area(self,item) -> None:
         _field = 'area'
@@ -88,11 +95,16 @@ class ProcessingCountry:
     def clean__exchange_rates(self,item) -> None:
         _field = 'exchange_rates'
 
-        # Deal when the US dollar is the national currency
-        if 'US dollar is used' in item[_field][0]: 
-            _exchange_rates = 1 # Use US dollar implies that has a exchange rate equal to 1
+        if item[_field]:
+            # Deal when the US dollar is the national currency
+            if 'US dollar is used' in item[_field][0] or 'US dollar became' in item[_field][0]: 
+                _exchange_rates = 1 # Use US dollar implies that has a exchange rate equal to 1
+            elif 'entry for the West Bank' in item[_field][0]: # Data entry manual, special case for Gaza Strip
+                 _exchange_rates = 3.36
+            else:
+                _exchange_rates = self.__ExtractNumericValue(item,_field,float,1)
         else:
-            _exchange_rates = self.__ExtractNumericValue(item,_field,float,1)
+            _exchange_rates = None
 
         item[_field] = _exchange_rates
 
@@ -166,17 +178,17 @@ class ImagesCountry(ImagesPipeline):
     Pipeline for downloading the flag image 
     of a country 
     """
-
     def file_path(self,request,response=None,info=None,*,item=None):
         """
-        Method for defining the file name for the download 
-        flag country image
+        Custom method for defining the file name for 
+        the download flag country image
         """
+        logging.info(f'[FLAG BEING DONWLOADED] {item["country_url"]}')
 
         _image_name = item['country_name']
         _image_name = re.sub(r"[\(\),']",'',_image_name)
         _image_name = '-'.join(_image_name.lower().split())
-        
+
         _image_name = f'{_image_name}.jpg'
         item['image_name'] = _image_name
         return _image_name

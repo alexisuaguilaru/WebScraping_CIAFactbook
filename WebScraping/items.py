@@ -11,6 +11,9 @@ class CountryItem(scrapy.Item):
     information of a country in 
     https://www.cia.gov/the-world-factbook/
     """
+    # Field for debugging
+    country_url = scrapy.Field()
+
     # Fields for extracted data
     country_name = scrapy.Field() # Short country name
     area = scrapy.Field()
