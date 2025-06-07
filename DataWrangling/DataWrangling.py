@@ -150,6 +150,8 @@ def _(mo):
 
 @app.cell
 def _(WorldFactbook_Dataset_Raw_1):
+    # Keeping all the countries except 'World'
+
     WorldFactbook_Dataset_Raw_2 = WorldFactbook_Dataset_Raw_1.query("name != 'World'")
     return (WorldFactbook_Dataset_Raw_2,)
 
@@ -168,7 +170,71 @@ def _(mo):
 
 @app.cell
 def _(WorldFactbook_Dataset_Raw_2, src):
+    # Filling missing values on `population` with 0
+
     WorldFactbook_Dataset_Raw_2__population = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'population',0)
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"## 2.3 `gdp` Feature")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+        Due to the importance that this feature represents for the study, it is necessary to be careful about the value assigned for imputation, but as many of the missing values are for islands, protected areas and oceans, the best value is `0`.
+    
+        In addition to all this, it should be considered that these islands or territories are incorporated to a country, so the value of its `GDP` could be equal to that of the country to which it belongs.
+        """
+    )
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2):
+    # Exploring countries without `gdp`
+
+    WorldFactbook_Dataset_Raw_2.query("gdp != gdp")
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2, src):
+    # Filling missing values on `gdp` with 0
+
+    WorldFactbook_Dataset_Raw_2__gdp = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'gdp',0)
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"## 2.4 `unemployment` Feature")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"In several of the missing data are from non-productive islands or there is not enough data to determine the unemployment rate; therefore, under these considerations, the missing values can be imputed with `0`, although the mean could be used to indicate that they behave as the average unemployment rate of the countries.")
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2):
+    # Exploring countries without `unemployment`
+
+    WorldFactbook_Dataset_Raw_2.query("unemployment != unemployment")
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2, src):
+    # Filling missing values on `unemployment` with 0
+
+    WorldFactbook_Dataset_Raw_2__unemployment = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'unemployment',0)
     return
 
 
