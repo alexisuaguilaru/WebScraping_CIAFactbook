@@ -5,8 +5,8 @@ app = marimo.App()
 
 
 @app.cell
-def _(mo):
-    mo.md(r"# 0. Import LIbraries")
+def _():
+    # 0. Import Libraries
     return
 
 
@@ -43,7 +43,7 @@ def _():
 
 @app.cell
 def _(mo):
-    mo.md(r"# 1. Load Dataset and First Exploration")
+    mo.md(r"# 1. Load Dataset")
     return
 
 
@@ -235,6 +235,108 @@ def _(WorldFactbook_Dataset_Raw_2, src):
     # Filling missing values on `unemployment` with 0
 
     WorldFactbook_Dataset_Raw_2__unemployment = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'unemployment',0)
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"## 2.5 `taxes` Feature")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"Although many of the missing values belong to islands, taxes still apply, so these missing values in `taxes` should be imputed with the average of all countries. This is done to represent that they have a behavior similar to the global average.")
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2):
+    # Exploring countries without `taxes`
+
+    WorldFactbook_Dataset_Raw_2.query("taxes != taxes")
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2, src):
+    # Filling missing values on `taxes` with its mean
+
+    _mean_taxes = WorldFactbook_Dataset_Raw_2['taxes'].mean()
+    WorldFactbook_Dataset_Raw_2__taxes = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'taxes',_mean_taxes)
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"## 2.6 `debt` Feature")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+        Since there are many missing values in this feature, in addition to the fact that not all countries are islands or natural areas, this imputation becomes delicate.
+    
+        A candidate value for this imputation is to use the median of `debt`, because the median allows to indicate that these countries with missing values will have a behavior similar to `50%` of the countries with `debt`, that is, it is assumed that their debt is at most the median of `debt`.
+        """
+    )
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2):
+    # Exploring countries without `debt`
+
+    WorldFactbook_Dataset_Raw_2.query("debt != debt")
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2, src):
+    # Filling missing values on `debt` with its mean
+
+    _median_debt = WorldFactbook_Dataset_Raw_2['debt'].median()
+    WorldFactbook_Dataset_Raw_2__debt = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'debt',_median_debt)
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"## 2.7 `exchange_rates` Feature")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"In the countries that do not have this feature, two cases are detected: either they are islands belonging to a country or they do not have a national currency. Therefore, a manual imputation is performed for the missing values with the values of the corresponding countries and in the case that they do not have a national currency, it is left as `1`.")
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2):
+    # Exploring countries without `exchange_rates`
+
+    WorldFactbook_Dataset_Raw_2.query("exchange_rates != exchange_rates")
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2):
+    # Manual filling missing values on `exchange_rates`
+
+    _index_missing__exchange_rates = WorldFactbook_Dataset_Raw_2.query("exchange_rates != exchange_rates").index
+    _filling_values__exchange_rates = [1,1.515,
+                                       10.746,0.924,
+                                       1.515,0.924,
+                                       1.515,10.746,
+                                       1.369,1,
+                                       1,0.782,
+                                       1.369,1.369]
+
+    WorldFactbook_Dataset_Raw_2__exchange_rates = WorldFactbook_Dataset_Raw_2['exchange_rates'].copy()
+    WorldFactbook_Dataset_Raw_2__exchange_rates.iloc[_index_missing__exchange_rates] = _filling_values__exchange_rates
     return
 
 
