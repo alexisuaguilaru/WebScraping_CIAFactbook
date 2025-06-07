@@ -404,5 +404,110 @@ def _(WorldFactbook_Dataset_Raw_2, src):
     return
 
 
+@app.cell
+def _(mo):
+    mo.md(r"## 2.10 `airports` Feature")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"Of the countries with missing values in `airports`, most are uninhabited islands or countries that have access to this infrastructure using other means. Therefore, missing values are imputed with `0`.")
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2):
+    # Exploring countries without `airports`
+
+    WorldFactbook_Dataset_Raw_2.query("airports != airports")
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2, src):
+    # Filling missing values on `airports` with 0
+
+    WorldFactbook_Dataset_Raw_2__airports = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'airports',0)
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"## 2.11 `merchant_marine` Feature")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"The fact that they do not have the `merchant_marine` attribute can be related to the fact that they are landlocked countries or regions, countries that do not have port infrastructure or are uninhabited islands. Therefore, in these three cases, `merchant_marine` is imputed with `0`.")
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2):
+    # Exploring countries without `merchant_marine`
+
+    WorldFactbook_Dataset_Raw_2.query("merchant_marine != merchant_marine")
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2, src):
+    # Filling missing values on `merchant_marine` with 0
+
+    WorldFactbook_Dataset_Raw_2__merchant_marine = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'merchant_marine',0)
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"## 2.12 `military_expenditures` Feature")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"Countries that do not have `military_expenditures` verify that they are islands, are not publicly available their data or do not have military expenditures. Although some of the countries do have military expenditures (although they are not publicly reported), the best strategy is to impute the missing values with the global average of `military_expenditures`; this is to indicate that they have a similar trend to the global behavior.")
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2):
+    # Exploring countries without `military_expenditures`
+
+    WorldFactbook_Dataset_Raw_2.query("military_expenditures != military_expenditures")
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2, src):
+    # Filling missing values on `military_expenditures` with its mean
+
+    _median_military_expenditures = WorldFactbook_Dataset_Raw_2['military_expenditures'].median()
+    WorldFactbook_Dataset_Raw_2__military_expenditures = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'military_expenditures',_median_military_expenditures)
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"## 2.13 `image_urls` Feature")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"Of the countries that do not have the image of their flag, it is because the page [CIA: The World Factbook](https://www.cia.gov/the-world-factbook/) does not have the representative flag of those countries.")
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2):
+    # Exploring countries without `image_urls`
+
+    WorldFactbook_Dataset_Raw_2.query("image_urls != image_urls")
+    return
+
+
 if __name__ == "__main__":
     app.run()
