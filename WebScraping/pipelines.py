@@ -47,11 +47,11 @@ class ProcessingCountry:
         if item[_field]:
             _name = item[_field][1].strip()
             if _name == 'none': # Use short convention form if exists
-                item[_field] = item[_field][0].strip() # Otherwise use long convention form
-        elif item['image_urls']: # 'world' and 'european union' do not have 'country_name', but 'european union' has 'image_urls'
-            _name = 'European Union'
-        else:
-            _name = 'World'
+                _name = item[_field][0].strip() # Otherwise use long convention form
+        else: # Whether 'country_name' does not exist, use name from URL
+            _name = item['country_url'].split('/')[-2]
+            _name = _name.split('-')
+            _name = ' '.join(map(str.capitalize,_name))
 
         item[_field] = _name
 
