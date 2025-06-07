@@ -48,7 +48,9 @@ class ProcessingCountry:
             _name = item[_field][1].strip()
             if _name == 'none': # Use short convention form if exists
                 item[_field] = item[_field][0].strip() # Otherwise use long convention form
-        else: # Every country has a short or long name but 'world' not
+        elif item['image_urls']: # 'world' and 'european union' do not have 'country_name', but 'european union' has 'image_urls'
+            _name = 'European Union'
+        else:
             _name = 'World'
 
         item[_field] = _name

@@ -19,17 +19,12 @@ class CountrySpider(scrapy.Spider):
     meta_playwright = {'playwright': True,
                        'playwright_include_page': True,
                        'playwright_page_methods': [PageMethod('wait_for_timeout',4*1000)]}
-
-    # For testing
-    start_urls = [
-                  'https://www.cia.gov/the-world-factbook/countries/gaza-strip/',
-                 ] 
     
     # For deployment
-    # start_urls = GetLinksCountries()
+    start_urls = GetLinksCountries()
 
     async def start(self):
-        for counter_urls , url in enumerate(self.start_urls,1):
+        for url in self.start_urls:
             yield scrapy.Request(url,callback=self.parse_data,meta=self.meta_playwright)
     
     # Data field being extracted for a country

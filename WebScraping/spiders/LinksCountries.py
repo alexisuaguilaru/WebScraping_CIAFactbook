@@ -1,7 +1,5 @@
 import re
 import requests
-from time import sleep
-from random import sample # For random testing
 
 from typing import Iterator
 
