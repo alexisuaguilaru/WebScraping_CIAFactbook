@@ -169,6 +169,14 @@ def _(mo):
 
 
 @app.cell
+def _(WorldFactbook_Dataset_Raw_2):
+    # Exploring countries without `population`
+
+    WorldFactbook_Dataset_Raw_2.query("population != population")
+    return
+
+
+@app.cell
 def _(WorldFactbook_Dataset_Raw_2, src):
     # Filling missing values on `population` with 0
 
@@ -337,6 +345,62 @@ def _(WorldFactbook_Dataset_Raw_2):
 
     WorldFactbook_Dataset_Raw_2__exchange_rates = WorldFactbook_Dataset_Raw_2['exchange_rates'].copy()
     WorldFactbook_Dataset_Raw_2__exchange_rates.iloc[_index_missing__exchange_rates] = _filling_values__exchange_rates
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"## 2.8 `internet_users` Feature")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"In most cases these are uninhabited islands, protected areas or public information, so the `internet_users` feature does not have a value, i.e. it is `0`.")
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2):
+    # Exploring countries without `internet_users`
+
+    WorldFactbook_Dataset_Raw_2.query("internet_users != internet_users")
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2, src):
+    # Filling missing values on `internet_users` with 0
+
+    WorldFactbook_Dataset_Raw_2__internet_users = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'internet_users',0)
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"## 2.9 `internet_percent` Feature")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"As in `internet_users`, missing values in `internet_percent` are imputed with `0`.")
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2):
+    # Exploring countries without `internet_percent`
+
+    WorldFactbook_Dataset_Raw_2.query("internet_percent != internet_percent")
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2, src):
+    # Filling missing values on `internet_percent` with 0
+
+    WorldFactbook_Dataset_Raw_2__internet_percent = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'internet_percent',0)
     return
 
 
