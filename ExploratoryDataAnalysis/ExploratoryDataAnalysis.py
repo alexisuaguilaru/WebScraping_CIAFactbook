@@ -40,7 +40,7 @@ def _():
 
     import seaborn as sns
     import matplotlib.pyplot as plt
-    return np, pd, sns, stats
+    return np, pd, stats
 
 
 @app.cell
@@ -99,7 +99,7 @@ def _():
     gdp = 'gdp'
     internet_percent = 'internet_percent'
     gdp_encode = 'gdp_encode'
-    return gdp, gdp_encode, internet_percent
+    return gdp, internet_percent
 
 
 @app.cell
@@ -198,11 +198,25 @@ def _(mo):
 
 
 @app.cell
-def _(WorldFactbook_Dataset_Clean, gdp, gdp_encode, internet_percent, sns):
-    _data_x = (WorldFactbook_Dataset_Clean[gdp])
-    _data_y = (WorldFactbook_Dataset_Clean[internet_percent])
+def _(mo):
+    mo.md(
+        r"""
+        The Pearson Correlation Test is used to prove that the correlation is statistically significant in order to show that this relationship exists.
+    
+        By using the `gdp` values without transforming, it is proved that they have a statistically significant correlation. This implies that as a country's purchasing power increases so does Internet access and this makes sense because there is more investment in telecommunications infrastructure in both the public and private sectors.
+        """
+    )
+    return
 
-    sns.scatterplot(x=_data_x,y=_data_y,hue=WorldFactbook_Dataset_Clean[gdp_encode])
+
+@app.cell
+def _(WorldFactbook_Dataset_Clean, gdp, internet_percent, src, stats):
+    _plot = src.PlotBivariateFeatures(WorldFactbook_Dataset_Clean,gdp,internet_percent,False)
+
+    _result = stats.pearsonr(WorldFactbook_Dataset_Clean[gdp],WorldFactbook_Dataset_Clean[internet_percent])
+    print(f"P-value of Pearson Correlation Test: {_result.pvalue}")
+
+    _plot
     return
 
 
