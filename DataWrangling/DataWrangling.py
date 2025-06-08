@@ -47,7 +47,6 @@ def _():
     # Import Libraries
 
     import pandas as pd
-    import numpy as np
     return (pd,)
 
 
@@ -710,7 +709,7 @@ def _(mo):
 def _(PATH_DATASET, WorldFactbook_Dataset):
     # Dumping dataset 
 
-    WorldFactbook_Dataset.to_csv(PATH_DATASET+'Dataset.csv')
+    WorldFactbook_Dataset.to_csv(PATH_DATASET+'Dataset.csv',index=False)
     return
 
 
