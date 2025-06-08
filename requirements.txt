@@ -14,3 +14,6 @@ notebook >= 7.4.3
 ## Data Wrangling
 pandas >= 2.3.0
 seaborn >= 0.13.2
+
+## Data Analysis
+scipy >= 1.15.3

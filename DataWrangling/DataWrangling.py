@@ -71,7 +71,7 @@ def _(mo):
 def _(mo):
     mo.md(
         r"""
-        First the data set obtained from the Web Scraping process is loaded, in order to determine missing or null values in the different attributes.
+        First the dataset obtained from the Web Scraping process is loaded, in order to determine missing or null values in the different attributes.
     
         Based on [Requirements](../RequirementsDocument.pdf), the attributes are renamed to match those specified and those relevant to the study are retained.
     
@@ -541,7 +541,7 @@ def _(mo):
 def _(mo):
     mo.md(
         r"""
-        Once the missing values have been processed, manual adjustments are made on `name` for some special cases on the names. Afterwards, Data Wrangling is applied to the final data set.
+        Once the missing values have been processed, manual adjustments are made on `name` for some special cases on the names. Afterwards, Data Wrangling is applied to the final dataset.
     
         Finally, the `gdp` values are encoded in categorical values following the conventions established in [Requirements](../RequirementsDocument.pdf).
     
@@ -701,7 +701,7 @@ def _(mo):
 
 @app.cell
 def _(mo):
-    mo.md(r"With the last modifications made, it proceeds with saving the data set without missing values and with the pertinent modifications.")
+    mo.md(r"With the last modifications made, it proceeds with saving the dataset without missing values and with the pertinent modifications.")
     return
 
 
