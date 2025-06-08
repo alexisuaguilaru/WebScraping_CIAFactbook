@@ -5,6 +5,30 @@ app = marimo.App()
 
 
 @app.cell
+def _(mo):
+    mo.md(r"<img src='https://raw.githubusercontent.com/alexisuaguilaru/WebScraping_CIAFactbook/refs/heads/main/Resources/Proyecto03_DataWrangling_AlexisAguilar.png' alt='cover'>")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"# Introduction")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+        The following notebook aims to develop the different processes and decisions taken to perform the Data Wrangling on the dataset obtained from Web Scraping. The first step is to deal with the missing values of the different attributes based on the knowledge acquired from the Web Scraping itself and the meaning of the attributes. With these modifications the final dataset that will be used in the Exploratory Data Analysis is generated.
+    
+        Where the fundamental part of this notebook is found in [Data Wrangling](#2-data-wrangling) where the specific elements (countries) that do not have a specific attribute are also exposed, in addition to mentioning the value with which the missing values are imputed.
+        """
+    )
+    return
+
+
+@app.cell
 def _():
     # 0. Import Libraries
     return
@@ -24,9 +48,6 @@ def _():
 
     import pandas as pd
     import numpy as np
-
-    import seaborn as sns
-    import matplotlib.pyplot as plt
     return (pd,)
 
 
@@ -183,7 +204,7 @@ def _(WorldFactbook_Dataset_Raw_2, src):
     # Filling missing values on `population` with 0
 
     WorldFactbook_Dataset_Raw_2__population = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'population',0)
-    return
+    return (WorldFactbook_Dataset_Raw_2__population,)
 
 
 @app.cell
@@ -217,7 +238,7 @@ def _(WorldFactbook_Dataset_Raw_2, src):
     # Filling missing values on `gdp` with 0
 
     WorldFactbook_Dataset_Raw_2__gdp = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'gdp',0)
-    return
+    return (WorldFactbook_Dataset_Raw_2__gdp,)
 
 
 @app.cell
@@ -245,7 +266,7 @@ def _(WorldFactbook_Dataset_Raw_2, src):
     # Filling missing values on `unemployment` with 0
 
     WorldFactbook_Dataset_Raw_2__unemployment = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'unemployment',0)
-    return
+    return (WorldFactbook_Dataset_Raw_2__unemployment,)
 
 
 @app.cell
@@ -274,7 +295,7 @@ def _(WorldFactbook_Dataset_Raw_2, src):
 
     _mean_taxes = WorldFactbook_Dataset_Raw_2['taxes'].mean()
     WorldFactbook_Dataset_Raw_2__taxes = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'taxes',_mean_taxes)
-    return
+    return (WorldFactbook_Dataset_Raw_2__taxes,)
 
 
 @app.cell
@@ -309,7 +330,7 @@ def _(WorldFactbook_Dataset_Raw_2, src):
 
     _median_debt = WorldFactbook_Dataset_Raw_2['debt'].median()
     WorldFactbook_Dataset_Raw_2__debt = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'debt',_median_debt)
-    return
+    return (WorldFactbook_Dataset_Raw_2__debt,)
 
 
 @app.cell
@@ -347,7 +368,7 @@ def _(WorldFactbook_Dataset_Raw_2):
 
     WorldFactbook_Dataset_Raw_2__exchange_rates = WorldFactbook_Dataset_Raw_2['exchange_rates'].copy()
     WorldFactbook_Dataset_Raw_2__exchange_rates.iloc[_index_missing__exchange_rates] = _filling_values__exchange_rates
-    return
+    return (WorldFactbook_Dataset_Raw_2__exchange_rates,)
 
 
 @app.cell
@@ -375,7 +396,7 @@ def _(WorldFactbook_Dataset_Raw_2, src):
     # Filling missing values on `internet_users` with 0
 
     WorldFactbook_Dataset_Raw_2__internet_users = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'internet_users',0)
-    return
+    return (WorldFactbook_Dataset_Raw_2__internet_users,)
 
 
 @app.cell
@@ -403,7 +424,7 @@ def _(WorldFactbook_Dataset_Raw_2, src):
     # Filling missing values on `internet_percent` with 0
 
     WorldFactbook_Dataset_Raw_2__internet_percent = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'internet_percent',0)
-    return
+    return (WorldFactbook_Dataset_Raw_2__internet_percent,)
 
 
 @app.cell
@@ -431,7 +452,7 @@ def _(WorldFactbook_Dataset_Raw_2, src):
     # Filling missing values on `airports` with 0
 
     WorldFactbook_Dataset_Raw_2__airports = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'airports',0)
-    return
+    return (WorldFactbook_Dataset_Raw_2__airports,)
 
 
 @app.cell
@@ -459,7 +480,7 @@ def _(WorldFactbook_Dataset_Raw_2, src):
     # Filling missing values on `merchant_marine` with 0
 
     WorldFactbook_Dataset_Raw_2__merchant_marine = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'merchant_marine',0)
-    return
+    return (WorldFactbook_Dataset_Raw_2__merchant_marine,)
 
 
 @app.cell
@@ -488,7 +509,7 @@ def _(WorldFactbook_Dataset_Raw_2, src):
 
     _median_military_expenditures = WorldFactbook_Dataset_Raw_2['military_expenditures'].median()
     WorldFactbook_Dataset_Raw_2__military_expenditures = src.FillMissingValues(WorldFactbook_Dataset_Raw_2,'military_expenditures',_median_military_expenditures)
-    return
+    return (WorldFactbook_Dataset_Raw_2__military_expenditures,)
 
 
 @app.cell
@@ -583,17 +604,41 @@ def _(mo):
 
 
 @app.cell
-def _(WorldFactbook_Dataset_Raw_2, WorldFactbook_Dataset_Raw_3):
+def _(
+    WorldFactbook_Dataset_Raw_2__airports,
+    WorldFactbook_Dataset_Raw_2__debt,
+    WorldFactbook_Dataset_Raw_2__exchange_rates,
+    WorldFactbook_Dataset_Raw_2__gdp,
+    WorldFactbook_Dataset_Raw_2__internet_percent,
+    WorldFactbook_Dataset_Raw_2__internet_users,
+    WorldFactbook_Dataset_Raw_2__merchant_marine,
+    WorldFactbook_Dataset_Raw_2__military_expenditures,
+    WorldFactbook_Dataset_Raw_2__population,
+    WorldFactbook_Dataset_Raw_2__taxes,
+    WorldFactbook_Dataset_Raw_2__unemployment,
+    WorldFactbook_Dataset_Raw_3,
+):
     # Applying Data Wrangling 
 
     WorldFactbook_Dataset_Raw_3_Wrangling = WorldFactbook_Dataset_Raw_3.copy()
 
-    for _feature in WorldFactbook_Dataset_Raw_2.columns:
-        try:
-            _data_wrangling_feature = eval(f'WorldFactbook_Dataset_Raw_2__{_feature}')
-            WorldFactbook_Dataset_Raw_3_Wrangling[_feature] = _data_wrangling_feature
-        except:
-            continue
+    DataWrangling_features = [
+        WorldFactbook_Dataset_Raw_2__population,
+        WorldFactbook_Dataset_Raw_2__gdp,
+        WorldFactbook_Dataset_Raw_2__unemployment,
+        WorldFactbook_Dataset_Raw_2__taxes,
+        WorldFactbook_Dataset_Raw_2__debt,
+        WorldFactbook_Dataset_Raw_2__exchange_rates,
+        WorldFactbook_Dataset_Raw_2__internet_users,
+        WorldFactbook_Dataset_Raw_2__internet_percent,
+        WorldFactbook_Dataset_Raw_2__airports,
+        WorldFactbook_Dataset_Raw_2__merchant_marine ,
+        WorldFactbook_Dataset_Raw_2__military_expenditures,
+    ]
+
+    for _data_wrangling_feature in DataWrangling_features:
+        _feature = _data_wrangling_feature.name
+        WorldFactbook_Dataset_Raw_3_Wrangling[_feature] = _data_wrangling_feature
     return (WorldFactbook_Dataset_Raw_3_Wrangling,)
 
 
@@ -666,6 +711,37 @@ def _(PATH_DATASET, WorldFactbook_Dataset):
     # Dumping dataset 
 
     WorldFactbook_Dataset.to_csv(PATH_DATASET+'Dataset.csv')
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"# Conclusions")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"After carrying out different projects where Data Wrangling is applied as part of the data cleaning process, it is clear that this stage allows to collect many of these ideas and integrate new ones based on the knowledge of the problem we are working on. With this, it is necessary to know how to use domain knowledge to improve the accuracy of data cleaning.")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"# References")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+        * [1] [Proyecto 3: *Web Scraping con Scrapy*](../RequirementsDocument.pdf). Tinoco Martinez Sergio Rogelio
+        * [2] DataFrame. Pandas. https://pandas.pydata.org/docs/reference/frame.html
+        * [3] API Reference. Numpy. https://numpy.org/doc/stable/reference/index.html
+        * [4] API Reference. Marimo. https://docs.marimo.io/api/
+        """
+    )
     return
 
 

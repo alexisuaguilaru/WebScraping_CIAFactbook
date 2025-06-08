@@ -7,12 +7,12 @@
 5,Andorra,468.0,85370.0,64600.0,3.7,69.0,6712000000.0,0.924,8110150.0,95.0,0.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/5a3b39e923ca494d3bd4923cb8bb0c2d/4c6bd/AN-flag.jpg,high-income
 6,Angola,1246700.0,37202061.0,7200.0,14.5,10.1,45299000000.0,869.846,1674092745.0,45.0,107.0,64.0,1.0,https://www.cia.gov/the-world-factbook/static/f8266b04912be1432c38e9084b328e91/5a6d1/AO-flag.jpg,average-income
 7,Anguilla,91.0,19416.0,0.0,0.0,46.7,6712000000.0,2.7,1584346.0,81.6,1.0,2.0,1.65,https://www.cia.gov/the-world-factbook/static/bb31b658fa6cff60f645b20c15996f9c/a9f34/AV-flag.jpg,low-income
-8,Antarctica,14200000.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,,0.0,100.0,31.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/aa594889b790c1c1de48ef58f573a5ba/394f4/AY-flag.jpg,low-income
+8,Antarctica,14200000.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,1.0,0.0,100.0,31.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/aa594889b790c1c1de48ef58f573a5ba/394f4/AY-flag.jpg,low-income
 9,Antigua and Barbuda,443.0,102634.0,29000.0,0.0,19.6,6712000000.0,2.7,8005452.0,78.0,4.0,614.0,1.65,https://www.cia.gov/the-world-factbook/static/2df2897de636a97a3253e01c93f38d22/5a6d1/AC-flag.jpg,high-income
 10,Argentina,2780400.0,46994384.0,27100.0,7.9,11.1,74362000000.0,914.695,4182500176.0,89.0,764.0,201.0,0.6,https://www.cia.gov/the-world-factbook/static/242f28ed72e2462aacb91dc6cc12b850/659d4/AR-flag.jpg,high-income
 11,Armenia,29743.0,2976765.0,19200.0,13.3,22.5,6002000000.0,392.73,238141200.0,80.0,11.0,0.0,5.5,https://www.cia.gov/the-world-factbook/static/4c04e11d92945e0716d17d28e80644e2/d3e22/AM-flag.jpg,average-income
 12,Aruba,180.0,125063.0,40500.0,7.7,25.2,6712000000.0,1.79,12131111.0,97.0,1.0,1.0,1.65,https://www.cia.gov/the-world-factbook/static/4d17422d6b4c57bc04658ff0d31f1578/d3600/AA-flag.jpg,high-income
-13,Ashmore and Cartier Islands,5.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,,0.0,0.0,0.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/b3526e3d199489a9690b9ab17966c5b4/a8240/AT-flag.jpg,low-income
+13,Ashmore and Cartier Islands,5.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,1.515,0.0,0.0,0.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/b3526e3d199489a9690b9ab17966c5b4/a8240/AT-flag.jpg,low-income
 14,Australia,7741220.0,26768598.0,59600.0,4.1,23.6,6712000000.0,1.515,2596554006.0,97.0,2257.0,604.0,2.0,https://www.cia.gov/the-world-factbook/static/b3526e3d199489a9690b9ab17966c5b4/a8240/AS-flag.jpg,high-income
 15,Austria,83871.0,8967982.0,65000.0,5.4,25.9,6712000000.0,0.924,851958290.0,95.0,62.0,1.0,1.0,https://www.cia.gov/the-world-factbook/static/aeb6e44fe03c59364b760652f78d046b/61344/AU-flag.jpg,high-income
 16,Azerbaijan,86600.0,10650239.0,21300.0,5.6,15.4,12378000000.0,1.7,947871271.0,89.0,32.0,312.0,5.1,https://www.cia.gov/the-world-factbook/static/6169bbf4522db3db5bb8526974a25ff5/a8240/AJ-flag.jpg,average-income
@@ -29,7 +29,7 @@
 27,Bolivia,1098581.0,12311974.0,9800.0,3.1,39.9,11174000000.0,6.91,861838180.0,70.0,201.0,50.0,1.2,https://www.cia.gov/the-world-factbook/static/6d88a206db32928921c65765fb815df4/c9c14/BL-flag.jpg,average-income
 28,Bosnia and Herzegovina,51197.0,3798671.0,20100.0,10.7,19.1,5359000000.0,1.808,315289693.0,83.0,20.0,0.0,0.8,https://www.cia.gov/the-world-factbook/static/c053f22709fa106d615cef0d0cf7e202/995b9/BK-flag.jpg,average-income
 29,Botswana,581730.0,2450668.0,18800.0,23.1,19.6,1761000000.0,13.563,198504108.0,81.0,122.0,0.0,2.9,https://www.cia.gov/the-world-factbook/static/238f5c992f93619d9f3f6897f3321c3a/c9c14/BC-flag.jpg,average-income
-30,Bouvet Island,49.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,,0.0,0.0,0.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/5798fc33d6f0583d8cbe50d99aac1984/7bdc5/BV-flag.jpg,low-income
+30,Bouvet Island,49.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,10.746,0.0,0.0,0.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/5798fc33d6f0583d8cbe50d99aac1984/7bdc5/BV-flag.jpg,low-income
 31,Brazil,8515770.0,220051512.0,19000.0,7.6,14.2,198582000000.0,5.389,18484327008.0,84.0,5297.0,888.0,1.1,https://www.cia.gov/the-world-factbook/static/3df8e40fa28f17e82d9fb96d8d2394be/a87d6/BR-flag.jpg,average-income
 32,British Indian Ocean Territory,60.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,1.0,0.0,0.0,1.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/6482a939b098f1a178bbed705e0605ae/dc398/IO-flag.jpg,low-income
 33,British Virgin Islands,151.0,40102.0,34200.0,0.0,38.9,6712000000.0,1.0,3127956.0,78.0,3.0,29.0,1.65,https://www.cia.gov/the-world-factbook/static/eb22f6fab442bae39c8828da1487f70f/a9f34/VI-flag.jpg,high-income
@@ -48,7 +48,7 @@
 46,Chile,756102.0,18664652.0,29500.0,9.1,17.7,6712000000.0,943.572,1773141940.0,95.0,379.0,249.0,1.5,https://www.cia.gov/the-world-factbook/static/ea5fede19d4acf99e6da186e63431093/58b3a/CI-flag.jpg,high-income
 47,China,9596960.0,1416043270.0,22100.0,4.6,7.8,488114000000.0,7.197,110451375060.0,78.0,552.0,8314.0,1.5,https://www.cia.gov/the-world-factbook/static/a2fe5c3341b8238cda968f0e3564243d/d93c2/CH-flag.jpg,average-income
 48,Christmas Island,135.0,1692.0,0.0,0.0,19.63145631067961,6712000000.0,1.505,132991.0,78.6,1.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/b22c5bb0553bf8af2fce61fe1a8e129e/d3e22/KT-flag.jpg,low-income
-49,Clipperton Island,6.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,,0.0,0.0,0.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/6ff09e3ae4da489810f797ab1cf8e366/c9c14/IP-flag.jpg,low-income
+49,Clipperton Island,6.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,0.924,0.0,0.0,0.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/6ff09e3ae4da489810f797ab1cf8e366/c9c14/IP-flag.jpg,low-income
 50,Cocos (Keeling) Islands,14.0,593.0,0.0,0.0,19.63145631067961,6712000000.0,1.505,7946.0,13.4,1.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/b3526e3d199489a9690b9ab17966c5b4/a8240/CK-flag.jpg,low-income
 51,Colombia,1138910.0,49588357.0,18700.0,9.6,17.7,108027000000.0,4074.434,3818303489.0,77.0,661.0,153.0,3.4,https://www.cia.gov/the-world-factbook/static/bc9e48880a8d14ccb99e8d800d872722/c9c14/CO-flag.jpg,average-income
 52,DRC,2344858.0,115403027.0,1500.0,4.6,11.4,7926000000.0,2340.036,3577493837.0,31.0,273.0,24.0,1.2,https://www.cia.gov/the-world-factbook/static/18855cf17229ec30204e367798ee1863/c9c14/CG-flag.jpg,low-income
@@ -58,7 +58,7 @@
 56,Comoros,2235.0,900141.0,3500.0,3.9,25.3,267652000.0,454.524,32405076.0,36.0,3.0,273.0,1.65,https://www.cia.gov/the-world-factbook/static/3f4bd5022fb2ca91f280c9a3c957123a/fd889/CN-flag.jpg,low-income
 57,Côte d'Ivoire,322463.0,29981758.0,6500.0,2.3,13.4,26576000000.0,606.345,1229252078.0,41.0,29.0,25.0,0.8,https://www.cia.gov/the-world-factbook/static/a3f4ff18c9bf3a40847998ffa59d11b8/acc32/IV-flag.jpg,average-income
 58,Croatia,56594.0,4150116.0,41100.0,5.2,21.5,6712000000.0,0.924,344459628.0,83.0,45.0,384.0,1.8,https://www.cia.gov/the-world-factbook/static/73ba27cd0ddd40165aac433837725cfe/35a22/HR-flag.jpg,high-income
-59,Coral Sea Islands,3.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,,0.0,0.0,0.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/b3526e3d199489a9690b9ab17966c5b4/a8240/CR-flag.jpg,low-income
+59,Coral Sea Islands,3.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,1.515,0.0,0.0,0.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/b3526e3d199489a9690b9ab17966c5b4/a8240/CR-flag.jpg,low-income
 60,Cuba,110860.0,10966038.0,12300.0,1.5,58.1,6712000000.0,24.0,778588698.0,71.0,120.0,65.0,4.2,https://www.cia.gov/the-world-factbook/static/8061442a83ec52dabe4c68548b07c7ad/995b9/CU-flag.jpg,average-income
 61,Curacao,444.0,153289.0,28900.0,0.0,19.63145631067961,6712000000.0,1.79,10423652.0,68.0,1.0,57.0,1.65,https://www.cia.gov/the-world-factbook/static/f6ebc382443e2e57f73fa1dc589532cc/5a6d1/UC-flag.jpg,high-income
 62,Cyprus,9251.0,1320525.0,53400.0,5.6,24.1,6712000000.0,0.924,120167775.0,91.0,14.0,1005.0,1.7,https://www.cia.gov/the-world-factbook/static/93d228279337d07ca122a0bd61b11016/47aca/CY-flag.jpg,high-income
@@ -81,7 +81,7 @@
 79,Finland,338145.0,5626414.0,57100.0,8.3,25.3,6712000000.0,0.924,528882916.0,94.0,98.0,282.0,2.4,https://www.cia.gov/the-world-factbook/static/fbda235c74f64157a07433d9f999f46b/bec52/FI-flag.jpg,high-income
 80,French Polynesia,4167.0,303540.0,18600.0,11.8,19.63145631067961,6712000000.0,110.306,22158420.0,73.0,54.0,24.0,1.65,https://www.cia.gov/the-world-factbook/static/516c0c4d2374e00505c16101f44b22df/c9c14/FP-flag.jpg,average-income
 81,"Gaza, Gaza Strip",360.0,2141643.0,5300.0,24.4,21.5,6712000000.0,3.36,186322941.0,87.0,0.0,0.0,1.65,,average-income
-82,French Southern and Antarctic Lands,55.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,,0.0,0.0,4.0,2.0,1.65,https://www.cia.gov/the-world-factbook/static/6ff09e3ae4da489810f797ab1cf8e366/c9c14/FS-flag.jpg,low-income
+82,French Southern and Antarctic Lands,55.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,0.924,0.0,0.0,4.0,2.0,1.65,https://www.cia.gov/the-world-factbook/static/6ff09e3ae4da489810f797ab1cf8e366/c9c14/FS-flag.jpg,low-income
 83,Fiji,18274.0,951611.0,13700.0,4.3,20.7,1397000000.0,2.268,75177269.0,79.0,26.0,74.0,1.4,https://www.cia.gov/the-world-factbook/static/df9716822d38505a403a6c0af6bb83a1/995b9/FJ-flag.jpg,average-income
 84,Gabon,267667.0,2455105.0,18700.0,20.1,9.5,6442000000.0,606.345,176767560.0,72.0,42.0,87.0,1.5,https://www.cia.gov/the-world-factbook/static/24bceaf7f8b932203f3f76ecf06b0af4/c9c14/GB-flag.jpg,average-income
 85,The Gambia,11300.0,2523327.0,2900.0,6.5,20.3,902421000.0,61.096,116073042.0,46.0,1.0,15.0,0.6,https://www.cia.gov/the-world-factbook/static/b71a15ee30226bf04936fd9e80a18c2b/c9c14/GA-flag.jpg,low-income
@@ -99,7 +99,7 @@
 97,Guinea,245857.0,13986179.0,3900.0,5.2,16.6,3764000000.0,9565.082,377626833.0,27.0,16.0,2.0,2.1,https://www.cia.gov/the-world-factbook/static/c32c5c5e52cd4dffd129ad2c5c06dcde/58b3a/GV-flag.jpg,low-income
 98,Guinea-Bissau,36125.0,2132325.0,2600.0,2.6,8.6,896812000.0,606.345,70366725.0,33.0,7.0,20.0,1.2,https://www.cia.gov/the-world-factbook/static/64f46165193fa4e26615bd346ea81cfc/995b9/PU-flag.jpg,low-income
 99,Haiti,27750.0,11753943.0,3000.0,15.1,18.2,1865000000.0,131.811,458403777.0,39.0,17.0,4.0,1.65,https://www.cia.gov/the-world-factbook/static/2a1b90800af8530bf6fde9ab9a0445ea/58b3a/HA-flag.jpg,low-income
-100,Heard Island and McDonald Islands,412.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,,0.0,0.0,0.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/b3526e3d199489a9690b9ab17966c5b4/a8240/HM-flag.jpg,low-income
+100,Heard Island and McDonald Islands,412.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,1.515,0.0,0.0,0.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/b3526e3d199489a9690b9ab17966c5b4/a8240/HM-flag.jpg,low-income
 101,Honduras,112090.0,9529188.0,6500.0,6.1,15.1,7785000000.0,24.799,552692904.0,58.0,129.0,489.0,1.5,https://www.cia.gov/the-world-factbook/static/edddadc5890b938bf132b2a37d0e8172/eea72/HO-flag.jpg,average-income
 102,Hong Kong,1108.0,7297821.0,64500.0,2.8,23.2,6712000000.0,7.804,700590816.0,96.0,2.0,2537.0,1.65,https://www.cia.gov/the-world-factbook/static/147ab27ecdff7ec5bfcac6b470f6f2dc/5d511/HK-flag.jpg,high-income
 103,Guyana,214969.0,794099.0,49300.0,10.2,28.1,1805000000.0,208.5,65116118.0,82.0,55.0,80.0,0.9,https://www.cia.gov/the-world-factbook/static/7f8c6567808575299b513621af7bc3a3/c9c14/GY-flag.jpg,high-income
@@ -114,7 +114,7 @@
 112,Italy,301340.0,60964931.0,53300.0,6.8,24.9,6712000000.0,0.924,5303948997.0,87.0,655.0,1276.0,1.5,https://www.cia.gov/the-world-factbook/static/33b85da9b15e69745c3d63b6025f5e05/61344/IT-flag.jpg,high-income
 113,Iraq,438317.0,42083436.0,12700.0,15.5,1.3,15580000000.0,1300.0,3450841752.0,82.0,73.0,74.0,2.5,https://www.cia.gov/the-world-factbook/static/d36ed53850af233282da1905a6cd0415/58b3a/IZ-flag.jpg,average-income
 114,Isle of Man,572.0,92269.0,84600.0,1.1,19.63145631067961,6712000000.0,0.782,0.0,0.0,4.0,269.0,1.65,https://www.cia.gov/the-world-factbook/static/54df35492fb881934b6508c7a89cba97/5a6d1/IM-flag.jpg,high-income
-115,Jan Mayen,377.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,,0.0,0.0,0.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/5798fc33d6f0583d8cbe50d99aac1984/7bdc5/JN-flag.jpg,low-income
+115,Jan Mayen,377.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,10.746,0.0,0.0,0.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/5798fc33d6f0583d8cbe50d99aac1984/7bdc5/JN-flag.jpg,low-income
 116,Japan,377915.0,123201945.0,46200.0,2.6,35.2,6712000000.0,151.366,10718569215.0,87.0,280.0,5229.0,1.4,https://www.cia.gov/the-world-factbook/static/f8a50feaf50a9cc30a4fac576cf41c03/58b3a/JA-flag.jpg,high-income
 117,Jamaica,10991.0,2823713.0,10300.0,4.9,25.7,9636000000.0,156.44,234368179.0,83.0,20.0,40.0,1.4,https://www.cia.gov/the-world-factbook/static/7cdfdec7aab8523c71170f2696421c9d/a8240/JM-flag.jpg,average-income
 118,Jersey,116.0,103387.0,56600.0,6.3,19.63145631067961,6712000000.0,0.782,4238867.0,41.0,1.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/b3263b5ca2822aedac6d6b19c0ac3d13/e96bf/JE-flag.jpg,high-income
@@ -156,7 +156,7 @@
 154,Mozambique,799380.0,33350954.0,1500.0,3.5,22.7,8273999999.999999,63.905,667019080.0,20.0,92.0,36.0,1.5,https://www.cia.gov/the-world-factbook/static/e9b58bad631a0149abf41c6af5ba6a89/c9c14/MZ-flag.jpg,low-income
 155,Namibia,824292.0,2803660.0,10100.0,19.1,27.2,6712000000.0,18.329,179434240.0,64.0,259.0,15.0,2.8,https://www.cia.gov/the-world-factbook/static/35815fe5e1857172b611959abdd682f6/c9c14/WA-flag.jpg,average-income
 156,Nauru,21.0,9892.0,12500.0,0.0,44.4,6712000000.0,1.515,811144.0,82.0,1.0,6.0,1.65,https://www.cia.gov/the-world-factbook/static/d1cb9100d645c7d70979da4d5048048d/a8240/NR-flag.jpg,average-income
-157,Navassa Island,5.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,,0.0,0.0,0.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/ee588cf04d974c70ba0b0169ed7e1050/a8344/BQ-flag.jpg,low-income
+157,Navassa Island,5.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,1.369,0.0,0.0,0.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/ee588cf04d974c70ba0b0169ed7e1050/a8344/BQ-flag.jpg,low-income
 158,Nepal,147181.0,31122387.0,4900.0,10.7,17.5,5719000000.0,133.727,1742853672.0,56.0,51.0,0.0,1.0,https://www.cia.gov/the-world-factbook/static/b841fe443d07c53e75c71bc4e77944f2/1a050/NP-flag.jpg,low-income
 159,Morocco,716550.0,37387585.0,8900.0,8.9,21.0,42262000000.0,9.942,3402270235.0,91.0,48.0,94.0,4.0,https://www.cia.gov/the-world-factbook/static/50a136b9fc4269e69638bd3916fdd677/c9c14/MO-flag.jpg,average-income
 160,Netherlands,41543.0,17772378.0,71400.0,3.6,24.8,6712000000.0,0.924,1723920666.0,97.0,44.0,1187.0,2.1,https://www.cia.gov/the-world-factbook/static/5c43f5bf65fb2d64d0fd074d3128845f/c9c14/NL-flag.jpg,high-income
@@ -170,7 +170,7 @@
 168,Northern Mariana Islands,464.0,51118.0,24500.0,0.0,31.4,6712000000.0,1.0,1283062.0,25.1,4.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/92c44d539a0904ed319f330a4b427c48/58293/CQ-flag.jpg,average-income
 169,Niue,260.0,1815.0,11100.0,0.0,19.63145631067961,6712000000.0,1.628,145200.0,80.0,1.0,70.0,1.65,https://www.cia.gov/the-world-factbook/static/6c50e3cc06ecf91141d7a4f64e36aed0/a8240/NE-flag.jpg,average-income
 170,Oman,309500.0,3901992.0,38300.0,3.2,31.3,6712000000.0,0.384,370689240.0,95.0,37.0,57.0,6.0,https://www.cia.gov/the-world-factbook/static/bc66f2c83d46b4c32c2478d43549bd41/ca1eb/MU-flag.jpg,high-income
-171,Paracel Islands,8.0,2230.0,0.0,0.0,19.63145631067961,6712000000.0,,0.0,0.0,2.0,0.0,1.65,,low-income
+171,Paracel Islands,8.0,2230.0,0.0,0.0,19.63145631067961,6712000000.0,1.0,0.0,0.0,2.0,0.0,1.65,,low-income
 172,Norway,323802.0,5509733.0,90500.0,4.0,26.9,6712000000.0,10.746,545463567.0,99.0,146.0,1720.0,2.2,https://www.cia.gov/the-world-factbook/static/70891da9f9d837c0a540ce8bf197d5c3/ca6b9/NO-flag.gif,high-income
 173,Palau,459.0,21864.0,15800.0,0.0,18.1,6712000000.0,1.0,590328.0,27.0,3.0,427.0,1.65,https://www.cia.gov/the-world-factbook/static/f976a2d1c40aa724b820c2d9063ff1db/58b3a/PS-flag.jpg,average-income
 174,Panama,75420.0,4470241.0,35900.0,6.5,7.5,6712000000.0,1.0,348678798.0,78.0,77.0,8174.0,1.1,https://www.cia.gov/the-world-factbook/static/43f60e74fdf26edddfd37e46cb8a4b70/58b3a/PM-flag.jpg,high-income
@@ -206,9 +206,9 @@
 204,Sint Maarten,34.0,46215.0,44900.0,0.0,19.63145631067961,6712000000.0,1.79,4136242.0,89.5,1.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/7b46eaa4fb933f359f55e2ae0d3712ef/c78e2/NN-flag.jpg,high-income
 205,Slovakia,49035.0,5563649.0,39300.0,5.2,19.4,6712000000.0,0.924,500728410.0,90.0,116.0,0.0,2.0,https://www.cia.gov/the-world-factbook/static/84ffb769efe3badaecb055fbbf3f80e8/c9c14/LO-flag.jpg,high-income
 206,Solomon Islands,28896.0,726799.0,2500.0,1.5,20.7,184191000.0,8.455,31252357.0,43.0,36.0,25.0,1.65,https://www.cia.gov/the-world-factbook/static/a53181b27ef4c0f454eaa623490a412e/c9c14/BP-flag.jpg,low-income
-207,Spratly Islands,5.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,,0.0,0.0,0.0,0.0,1.65,,low-income
+207,Spratly Islands,5.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,1.0,0.0,0.0,0.0,0.0,1.65,,low-income
 208,South Africa,1219090.0,60442647.0,13700.0,33.2,26.0,93879000000.0,18.329,4593641172.0,76.0,573.0,110.0,0.7,https://www.cia.gov/the-world-factbook/static/be87b762d6b2f3a1350607390cf4187e/3a8a8/SF-flag.jpg,average-income
-209,South Georgia and South Sandwich Islands,3903.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,,0.0,0.0,0.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/ba72b07ac383536464b7813f8e25d8f5/a9f34/SX-flag.jpg,low-income
+209,South Georgia and South Sandwich Islands,3903.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,0.782,0.0,0.0,0.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/ba72b07ac383536464b7813f8e25d8f5/a9f34/SX-flag.jpg,low-income
 210,Slovenia,20273.0,2097893.0,48200.0,3.4,20.3,6712000000.0,0.924,188810370.0,90.0,42.0,8.0,1.3,https://www.cia.gov/the-world-factbook/static/e4cbb8a2d0882bd05f11d309ade78061/35a22/SI-flag.jpg,high-income
 211,South Sudan,644329.0,12703714.0,1600.0,12.5,8.5,6712000000.0,930.331,114333426.0,9.0,89.0,0.0,2.0,https://www.cia.gov/the-world-factbook/static/8174bda0be67b21af4704aebcf9cefcd/a8240/OD-flag.jpg,low-income
 212,Spain,505370.0,47280433.0,47100.0,11.4,15.0,6712000000.0,0.924,4491641135.0,95.0,365.0,503.0,1.3,https://www.cia.gov/the-world-factbook/static/d21e89432a1c16c63e5b3c2ecd020800/3d0aa/SP-flag.jpg,high-income
@@ -239,7 +239,7 @@
 237,United Arab Emirates,83600.0,10032213.0,68600.0,2.1,0.6,6712000000.0,3.672,1003221300.0,100.0,42.0,655.0,4.0,https://www.cia.gov/the-world-factbook/static/e6bc226d73f9c64b2bff9fa377a60f6e/1e3c2/AE-flag.jpg,high-income
 238,United Kingdom,243610.0,68459055.0,54500.0,4.1,27.3,6712000000.0,0.782,6572069280.0,96.0,1057.0,868.0,2.3,https://www.cia.gov/the-world-factbook/static/207adb1f82584e4e4812247ee3870228/5422d/UK-flag.jpg,high-income
 239,United States,9833517.0,341963408.0,74600.0,4.1,10.6,6712000000.0,1.369,31802596944.0,93.0,16116.0,3533.0,3.4,https://www.cia.gov/the-world-factbook/static/ee588cf04d974c70ba0b0169ed7e1050/a8344/US-flag.jpg,high-income
-240,United States Pacific Island Wildlife Refuges,6959.41,0.0,0.0,0.0,19.63145631067961,6712000000.0,,0.0,0.0,2.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/ee588cf04d974c70ba0b0169ed7e1050/a8344/UM-flag.jpg,low-income
+240,United States Pacific Island Wildlife Refuges,6959.41,0.0,0.0,0.0,19.63145631067961,6712000000.0,1.369,0.0,0.0,2.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/ee588cf04d974c70ba0b0169ed7e1050/a8344/UM-flag.jpg,low-income
 241,Uruguay,176215.0,3425330.0,31000.0,8.4,18.8,6712000000.0,40.213,308279700.0,90.0,65.0,58.0,2.1,https://www.cia.gov/the-world-factbook/static/01db03859b211f2717de79058894400d/28d2c/UY-flag.jpg,high-income
 242,Uzbekistan,447400.0,36520593.0,10000.0,4.5,11.6,25714000000.0,12652.287,3250332777.0,89.0,74.0,0.0,2.8,https://www.cia.gov/the-world-factbook/static/627da7413db8f8a6b23576d04a32af3f/a8240/UZ-flag.jpg,average-income
 243,West Bank,5860.0,3243369.0,5300.0,24.4,21.5,6712000000.0,3.36,282173103.0,87.0,1.0,0.0,1.65,,average-income
@@ -247,7 +247,7 @@
 245,Venezuela,912050.0,31250306.0,7704.0,5.5,44.2,6712000000.0,9.975,1937518972.0,62.0,509.0,272.0,0.6,https://www.cia.gov/the-world-factbook/static/09604e4f3c5b8f19f60f1b7d4fc371e2/bee8c/VE-flag.jpg,average-income
 246,Vietnam,331210.0,105758975.0,13500.0,1.4,24.8,34426000000.0,24164.886,8249200050.0,78.0,36.0,1973.0,1.8,https://www.cia.gov/the-world-factbook/static/b985142125bd6df381e99ae3508c5e89/58b3a/VM-flag.jpg,average-income
 247,Virgin Islands,1910.0,104377.0,46500.0,12.0,28.9,6712000000.0,1.0,6680128.0,64.0,2.0,2.0,1.65,https://www.cia.gov/the-world-factbook/static/ea45ae943045ec5906f97dc88bae3c2b/ed55c/VQ-flag.jpg,high-income
-248,Wake Island,7.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,,0.0,0.0,1.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/ee588cf04d974c70ba0b0169ed7e1050/a8344/WQ-flag.jpg,low-income
+248,Wake Island,7.0,0.0,0.0,0.0,19.63145631067961,6712000000.0,1.369,0.0,0.0,1.0,0.0,1.65,https://www.cia.gov/the-world-factbook/static/ee588cf04d974c70ba0b0169ed7e1050/a8344/WQ-flag.jpg,low-income
 249,Wallis and Futuna,142.0,15964.0,0.0,0.0,19.63145631067961,6712000000.0,110.347,731151.0,45.8,2.0,1.0,1.65,https://www.cia.gov/the-world-factbook/static/a90e16006ee292e8e781436090ca3d49/bee9b/WF-flag.jpg,low-income
 250,Yemen,527968.0,32140443.0,2500.0,17.1,9.0,6492000000.0,1355.116,449966202.0,14.0,37.0,30.0,1.65,https://www.cia.gov/the-world-factbook/static/ef03f3a4740eb9c84e5bd7686c86b09f/c9c14/YM-flag.jpg,low-income
 251,Zambia,752618.0,20799116.0,3700.0,6.0,16.8,16597000000.000002,26.166,686370828.0,33.0,120.0,2.0,1.4,https://www.cia.gov/the-world-factbook/static/22265a635536d5a54f69ca096cc1a5c1/0ac11/ZA-flag.jpg,low-income
