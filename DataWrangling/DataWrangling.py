@@ -153,6 +153,8 @@ def _(WorldFactbook_Dataset_Raw_1):
     # Keeping all the countries except 'World'
 
     WorldFactbook_Dataset_Raw_2 = WorldFactbook_Dataset_Raw_1.query("name != 'World'")
+
+    WorldFactbook_Dataset_Raw_2.reset_index(drop=True,inplace=True)
     return (WorldFactbook_Dataset_Raw_2,)
 
 
@@ -506,6 +508,164 @@ def _(WorldFactbook_Dataset_Raw_2):
     # Exploring countries without `image_urls`
 
     WorldFactbook_Dataset_Raw_2.query("image_urls != image_urls")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"# 3. Dump Modified Dataset")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+        Once the missing values have been processed, manual adjustments are made on `name` for some special cases on the names. Afterwards, Data Wrangling is applied to the final data set.
+    
+        Finally, the `gdp` values are encoded in categorical values following the conventions established in [Requirements](../RequirementsDocument.pdf).
+    
+        And with this last modification, the dataset is saved with the last modifications.
+        """
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"## 3.1 Renaming Country Names")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+        The names of the following entries are renamed using the consequent names:
+    
+        * Svalbard (sometimes referred to as Spitsbergen, the largest island in the archipelago) $\to$ Svalbard
+    
+        * Baker Island, Howland Island, Jarvis Island, Johnston Atoll, Kingman Reef, Midway Islands, Palmyra Atoll $\to$ United States Pacific Island Wildlife Refuges
+        """
+    )
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2):
+    # Renaming some values in `name`
+
+    WorldFactbook_Dataset_Raw_3 = WorldFactbook_Dataset_Raw_2.copy()
+
+    _index_long_names = [217,240]
+    _rename_long_names = ['Svalbard','United States Pacific Island Wildlife Refuges']
+
+    WorldFactbook_Dataset_Raw_3.loc[_index_long_names,'name'] = _rename_long_names
+    return (WorldFactbook_Dataset_Raw_3,)
+
+
+@app.cell
+def _(mo):
+    mo.md(r"## 3.2 Merge Individual Data Wrangling")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+        From the different considerations and imputation values to perform the [Data Wrangling](#2-data-wrangling), they are applied to the final dataset, and it is checked that it has no missing values except in `image_urls`.
+    
+        As the last point is verified, the Data Wrangling has been properly performed on the dataset.
+        """
+    )
+    return
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_2, WorldFactbook_Dataset_Raw_3):
+    # Applying Data Wrangling 
+
+    WorldFactbook_Dataset_Raw_3_Wrangling = WorldFactbook_Dataset_Raw_3.copy()
+
+    for _feature in WorldFactbook_Dataset_Raw_2.columns:
+        try:
+            _data_wrangling_feature = eval(f'WorldFactbook_Dataset_Raw_2__{_feature}')
+            WorldFactbook_Dataset_Raw_3_Wrangling[_feature] = _data_wrangling_feature
+        except:
+            continue
+    return (WorldFactbook_Dataset_Raw_3_Wrangling,)
+
+
+@app.cell
+def _(WorldFactbook_Dataset_Raw_3_Wrangling, mo):
+    mo.vstack(
+        [
+            mo.md('**Count of Null Values by Feature**'),
+            WorldFactbook_Dataset_Raw_3_Wrangling.isnull().sum(),
+        ]
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"## 3.3 Encode `gdp` Feature")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+        Following the conventions and notation in [Requirements](../RequirementsDocument.pdf), the `gdp_encode` feature is generated based on `gdp` with the following rules:
+    
+        * `low-income` $\implies$ `gdp` $\le 1.0$ billions
+    
+        * `average-income` $\implies 1.0 <$ `gdp` $\le 3.0$ billions
+    
+        * `high-income` $\implies$ `gdp` $3.0 >$ billions
+        """
+    )
+    return
+
+
+@app.cell
+def _(RANDOM_STATE, WorldFactbook_Dataset_Raw_3_Wrangling, mo, src):
+    # Encoding `gdp`
+
+    WorldFactbook_Dataset = WorldFactbook_Dataset_Raw_3_Wrangling.copy()
+
+    WorldFactbook_Dataset['gdp_encode'] = src.EncoderGDP(WorldFactbook_Dataset)
+
+
+    _sample_countries = WorldFactbook_Dataset.sample(5,random_state=RANDOM_STATE)
+    mo.vstack(
+        [
+            mo.md('**Examples of Processed Countries**'),
+            _sample_countries,
+        ]
+    )
+    return (WorldFactbook_Dataset,)
+
+
+@app.cell
+def _(mo):
+    mo.md(r"## 3.4 Dump Dataset")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"With the last modifications made, it proceeds with saving the data set without missing values and with the pertinent modifications.")
+    return
+
+
+@app.cell
+def _(PATH_DATASET, WorldFactbook_Dataset):
+    # Dumping dataset 
+
+    WorldFactbook_Dataset.to_csv(PATH_DATASET+'Dataset.csv')
     return
 
 
