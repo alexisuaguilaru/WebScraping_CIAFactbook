@@ -17,7 +17,7 @@ def EncoderGDP(Dataset:pd.DataFrame) -> np.ndarray:
         Return a array with the encoded 
         values 
     """
-    class_values = np.array([5000,25000])
+    class_values = np.array([1e12,3e12])
     class_names = np.array([border_name+'-income' for border_name in ['low','average','high']])
 
     class_indexes = class_values.searchsorted(Dataset['gdp'])

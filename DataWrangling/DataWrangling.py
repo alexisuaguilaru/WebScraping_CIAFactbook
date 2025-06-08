@@ -87,7 +87,7 @@ def _(PATH_DATASET, pd):
 
     _features_renaming = {
         'country_name' : 'name',
-        'real_gdp_per_capita' : 'gdp',
+        'real_gdp_purchasing_power_parity' : 'gdp',
         'unemployment_rate' : 'unemployment',
         'taxes_and_other_revenues' : 'taxes',
         'debt_external' : 'debt',
@@ -361,7 +361,7 @@ def _(WorldFactbook_Dataset_Raw_2):
                                        10.746,0.924,
                                        1.515,0.924,
                                        1.515,10.746,
-                                       1.369,1,
+                                       1.369,1.628,1,
                                        1,0.782,
                                        1.369,1.369]
 
@@ -664,11 +664,11 @@ def _(mo):
         r"""
         Following the conventions and notation in [Requirements](../RequirementsDocument.pdf), the `gdp_encode` feature is generated based on `gdp` with the following rules:
     
-        * `low-income` $\implies$ `gdp` $\le 1.0$ billions
+        * `low-income` $\implies$ `gdp` $\le 1.0$ trillions
     
-        * `average-income` $\implies 1.0 <$ `gdp` $\le 3.0$ billions
+        * `average-income` $\implies 1.0 <$ `gdp` $\le 3.0$ trillions
     
-        * `high-income` $\implies$ `gdp` $3.0 >$ billions
+        * `high-income` $\implies$ `gdp` $3.0 >$ trillions
         """
     )
     return
