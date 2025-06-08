@@ -10,7 +10,16 @@ from matplotlib.axes import Axes
 PrettyFeatureNames = {
     'gdp' : 'GDP',
     'internet_percent' : 'Internet Users Percent',
-    'gdp_encode' : 'Type of Income'
+    'gdp_encode' : 'Type of Income',
+    'low-income' : 'Low Income',
+    'average-income' : 'Average Income',
+    'high-income' : 'High Income',
+}
+
+InverseTypeIncome = {
+    'low-income' : 0,
+    'average-income' : 1,
+    'high-income' : 2,
 }
 
 BaseColor = '#4169e1' 
@@ -99,7 +108,7 @@ def PlotUnivariateFeature(Dataset:pd.DataFrame,Feature:str,Log10:bool=True) -> F
     Returns
     -------
     fig : Figure
-        Figure where the plot was plotted 
+        Figure where the plot was generated
     """
     fig , axes = CreatePlot()
 
@@ -121,6 +130,28 @@ def PlotUnivariateFeature(Dataset:pd.DataFrame,Feature:str,Log10:bool=True) -> F
     return fig
 
 def PlotBivariateFeatures(Dataset:pd.DataFrame,Feature_X:str,Feature_Y:str,Log10_X:bool=True,Log10_Y:bool=False) -> Figure:
+    """
+    Function for plotting the relation between two 
+    features and their linear regression
+
+    Parameters
+    ----------
+    Dataset : pd.DataFrame
+        Dataset whose data is plotted 
+    Feature_X : str
+        Feature which is plotted on axis X
+    Feature_Y : str
+        Feature which is plotted on axis Y
+    Log10_X : bool
+        Whether is applied log_10 transformation to the values of `Feature_X`
+    Log10_Y : bool
+        Whether is applied log_10 transformation to the values of `Feature_Y`
+
+    Returns
+    -------
+    fig : Figure
+        Figure where the plot was generated
+    """
     fig , axes = CreatePlot()
 
     _data = Dataset[[Feature_X,Feature_Y]].copy()
@@ -137,5 +168,53 @@ def PlotBivariateFeatures(Dataset:pd.DataFrame,Feature_X:str,Feature_Y:str,Log10
 
     _title_fig = f'Relation Between {PrettyFeatureNames[Feature_X]} and\n{PrettyFeatureNames[Feature_Y]}'
     SetLabels(axes,_title_fig,_x_label,_y_label)
+
+    return fig
+
+def PlotHueBivariateFeatures(Dataset:pd.DataFrame,Feature_X:str,Feature_Y:str,Log10_X:bool=False,Log10_Y:bool=False) -> Figure:
+    """
+    Function for plotting the relation between two 
+    features and their linear regression based on 
+    a criterion defined by `gpd_encode` values
+
+    Parameters
+    ----------
+    Dataset : pd.DataFrame
+        Dataset whose data is plotted 
+    Feature_X : str
+        Feature which is plotted on axis X
+    Feature_Y : str
+        Feature which is plotted on axis Y
+    Log10_X : bool
+        Whether is applied log_10 transformation to the values of `Feature_X`
+    Log10_Y : bool
+        Whether is applied log_10 transformation to the values of `Feature_Y`
+
+    Returns
+    -------
+    fig : Figure
+        Figure where the plot was generated
+    """
+    fig , axes = CreatePlot()
+
+    _hue = 'gdp_encode'
+    _data = Dataset[[_hue,Feature_X,Feature_Y]].copy()
+    for _log10 , _feature in zip([Log10_X,Log10_Y],[Feature_X,Feature_Y]):
+        if _log10: _data[_feature] = np.log10(_data[_feature])
+
+    for _class in Dataset[_hue].unique():
+        _stratified_data = _data.query(f"{_hue} == '{_class}'")
+        sns.regplot(data=_stratified_data,x=Feature_X,y=Feature_Y,ax=axes,
+                    color=BasePalette[InverseTypeIncome[_class]],label=PrettyFeatureNames[_class],
+                    scatter_kws={'s':128,'alpha':0.4},
+                    line_kws={'lw':4},)
+
+    _x_label = FormatLabel(Feature_X,Log10_X)
+    _y_label = FormatLabel(Feature_Y,Log10_Y)
+
+    _title_fig = f'Relation Between {PrettyFeatureNames[Feature_X]} and\n{PrettyFeatureNames[Feature_Y]} by Type of Income'
+    SetLabels(axes,_title_fig,_x_label,_y_label)
+
+    axes.legend(title=PrettyFeatureNames[_hue],loc='lower right',fontsize=18,title_fontsize=20)
 
     return fig

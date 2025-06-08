@@ -98,8 +98,8 @@ def _():
 
     gdp = 'gdp'
     internet_percent = 'internet_percent'
-    gdp_encode = 'gdp_encode'
-    return gdp, internet_percent
+    type_income = 'gdp_encode'
+    return gdp, internet_percent, type_income
 
 
 @app.cell
@@ -214,7 +214,46 @@ def _(WorldFactbook_Dataset_Clean, gdp, internet_percent, src, stats):
     _plot = src.PlotBivariateFeatures(WorldFactbook_Dataset_Clean,gdp,internet_percent,False)
 
     _result = stats.pearsonr(WorldFactbook_Dataset_Clean[gdp],WorldFactbook_Dataset_Clean[internet_percent])
-    print(f"P-value of Pearson Correlation Test: {_result.pvalue}")
+    print(f"P-value of Pearson Correlation Test: {_result.pvalue:.4f}")
+
+    _plot
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"# 5. Relationship Between `gdp` and `internet_percent` by Type of Income")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+        Repeating the use of Pearson Correlation Test, it is shown that there is a significant correlation when income is medium and high, due to how GDP values accumulate in these two categories, which are at high `internet_percent` values. The fact that there is no significant correlation when income is low can be related to the fact that countries are shown to be uniformly distributed over the different values of `internet_percent`.
+    
+        Therefore, it can be said that GDP, from a certain threshold, does have an influence on Internet access but reaches a saturation limit, due to the correlation when there is income (although there is not enough evidence, countries, to affirm this), GDP ceases to have an influence.
+        """
+    )
+    return
+
+
+@app.cell
+def _(
+    WorldFactbook_Dataset_Clean,
+    gdp,
+    internet_percent,
+    src,
+    stats,
+    type_income,
+):
+    _plot = src.PlotHueBivariateFeatures(WorldFactbook_Dataset_Clean,gdp,internet_percent)
+
+    for _type_income in WorldFactbook_Dataset_Clean[type_income].unique():
+        _data = WorldFactbook_Dataset_Clean.query(f"{type_income} == '{_type_income}'")
+        _result = stats.pearsonr(_data[gdp],_data[internet_percent])
+        print(f'{' '.join(map(str.capitalize,_type_income.split('-')))}')
+        print(f"P-value of Pearson Correlation Test: {_result.pvalue:.4f}\n")
 
     _plot
     return
