@@ -104,7 +104,7 @@ FEEDS = {
                     'country_name',
                     'area',
                     'population',
-                    'real_gdp_per_capita',
+                    'real_gdp_purchasing_power_parity',
                     'unemployment_rate',
                     'taxes_and_other_revenues',
                     'debt_external',

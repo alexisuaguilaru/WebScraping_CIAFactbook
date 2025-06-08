@@ -18,7 +18,7 @@ class ProcessingCountry:
     """
 
     # Data field being extracted for a country
-    fields_data = ['country-name','area','population','real-gdp-per-capita',
+    fields_data = ['country-name','area','population','real-gdp-purchasing-power-parity',
                    'unemployment-rate','taxes-and-other-revenues','debt-external',
                    'exchange-rates','internet-percent','internet-users','airports',
                    'merchant-marine','military-expenditures','images']
@@ -69,9 +69,17 @@ class ProcessingCountry:
         _field = 'population'
         item[_field] = self.__ExtractNumericValue(item,_field,int)
 
-    def clean__real_gdp_per_capita(self,item) -> None:
-        _field = 'real_gdp_per_capita'
-        item[_field] = self.__ExtractNumericValue(item,_field,int)
+    def clean__real_gdp_purchasing_power_parity(self,item) -> None:
+        _field = 'real_gdp_purchasing_power_parity'
+        _real_gdp_per_capita = self.__ExtractNumericValue(item,_field,float)
+        if 'million' in item[_field][0]:
+            _real_gdp_per_capita *= 10**6
+        elif 'billion' in item[_field][0]:
+            _real_gdp_per_capita *= 10**9
+        elif 'trillion' in item[_field][0]:
+            _real_gdp_per_capita *= 10**12
+    
+        item[_field] = _real_gdp_per_capita
 
     def clean__unemployment_rate(self,item) -> None:
         _field = 'unemployment_rate'

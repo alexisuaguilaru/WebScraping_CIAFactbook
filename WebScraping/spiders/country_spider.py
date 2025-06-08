@@ -28,7 +28,7 @@ class CountrySpider(scrapy.Spider):
             yield scrapy.Request(url,callback=self.parse_data,meta=self.meta_playwright)
     
     # Data field being extracted for a country
-    fields_data = ['country-name','area','population','real-gdp-per-capita',
+    fields_data = ['country-name','area','population','real-gdp-purchasing-power-parity',
                    'unemployment-rate','taxes-and-other-revenues','debt-external',
                    'exchange-rates','internet-users','airports',
                    'merchant-marine','military-expenditures']

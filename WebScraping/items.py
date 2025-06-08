@@ -18,7 +18,7 @@ class CountryItem(scrapy.Item):
     country_name = scrapy.Field() # Short country name
     area = scrapy.Field()
     population = scrapy.Field()
-    real_gdp_per_capita = scrapy.Field()
+    real_gdp_purchasing_power_parity = scrapy.Field()
     unemployment_rate = scrapy.Field()
     taxes_and_other_revenues = scrapy.Field()
     debt_external = scrapy.Field()
