@@ -168,7 +168,7 @@ def PlotBivariateFeatures(Dataset:pd.DataFrame,Feature_X:str,Feature_Y:str,Log10
     _x_label = FormatLabel(Feature_X,Log10_X)
     _y_label = FormatLabel(Feature_Y,Log10_Y)
 
-    _title_fig = f'Relation Between {PrettyFeatureNames[Feature_X]} and\n{PrettyFeatureNames[Feature_Y]}'
+    _title_fig = f'Correlation Between {PrettyFeatureNames[Feature_X]} and\n{PrettyFeatureNames[Feature_Y]}'
     SetLabels(axes,_title_fig,_x_label,_y_label)
 
     axes.grid(axis='both',visible=True,linestyle='--',linewidth=1,alpha=0.25)
@@ -216,7 +216,7 @@ def PlotHueBivariateFeatures(Dataset:pd.DataFrame,Feature_X:str,Feature_Y:str,Lo
     _x_label = FormatLabel(Feature_X,Log10_X)
     _y_label = FormatLabel(Feature_Y,Log10_Y)
 
-    _title_fig = f'Relation Between {PrettyFeatureNames[Feature_X]} and\n{PrettyFeatureNames[Feature_Y]} by Type of Income'
+    _title_fig = f'Correlation Between {PrettyFeatureNames[Feature_X]} and\n{PrettyFeatureNames[Feature_Y]} by Type of Income'
     SetLabels(axes,_title_fig,_x_label,_y_label)
 
     axes.legend(title=PrettyFeatureNames[_hue],loc='lower right',fontsize=18,title_fontsize=20)
