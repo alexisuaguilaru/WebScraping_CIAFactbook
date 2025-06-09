@@ -17,6 +17,18 @@ def _(mo):
 
 
 @app.cell
+def _(mo):
+    mo.md(
+        r"""
+        The following notebook aims to develop the facts and evidence to show whether there is a relationship between `gdp` and `internet_percent`, that is, the main questions of the study [[1]](#references). For this, a [Data Cleaning](#2-data-clean) is performed to discard some countries, mainly islands, which do not contribute much information to the discussion.
+    
+        Afterwards, a simple study of the variables to be used to reveal the salient facts and their impact in a more real context is carried out in [Univariate Analysis](#3-univariate-analysis-of-gdp-and-internet_users). And finally to test the relationship of the study by means of hypothesis tests based on the correlation of two variables are presented in [Relationship between `gdp` and `internet_percent`](#4-relationship-between-gdp-and-internet_percent) and [Relationship between `gdp` and `internet_percent by Type of Incomde](#5-relationship-between-gdp-and-internet_percent-by-type-of-income).
+        """
+    )
+    return
+
+
+@app.cell
 def _():
     # 0. Import Libraries
     return
@@ -76,7 +88,7 @@ def _(PATH_DATASET, RANDOM_STATE, pd):
 
 @app.cell
 def _(mo):
-    mo.md(r"# 2. Data Clean")
+    mo.md(r"# 2. Data Cleaning")
     return
 
 
@@ -262,6 +274,18 @@ def _(
 @app.cell
 def _(mo):
     mo.md(r"# Conclusions")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+        The most fundamental part of any Exploratory Data Analysis is based on generating new knowledge based on answering questions by means of statistics, both the use of graphs and appropriate tests. Both ideas were used to generate the exhibits in addition to taking care of the general aesthetics of the created plots, always keeping in mind that the information to be presented is communicated.
+    
+        Finally, what I take most from this project is the way in which the information and data has to be presented or exposed in order to reach the objective of the communication.
+        """
+    )
     return
 
 

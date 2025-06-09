@@ -36,7 +36,7 @@ def CreatePlot() -> tuple[Figure,Axes]:
     fig : Figure 
     axes : Axes
     """
-    fig , axes = plt.subplots(figsize=(10,8),layout='tight')
+    fig , axes = plt.subplots(subplot_kw={'frame_on':False},figsize=(10,8),layout='tight')
 
     return fig , axes
 
@@ -64,7 +64,7 @@ def SetLabels(Axes:Axes,Title:str=None,X_Label:str=None,Y_Label:str=None) -> Non
     if Y_Label:
         Axes.set_ylabel(Y_Label,size=24)
     
-    Axes.tick_params(size=12,width=2,labelsize=20)
+    Axes.tick_params(size=12,width=0,labelsize=20)
 
 def FormatLabel(Feature:str,Log10:bool) -> str:
     """
@@ -127,6 +127,8 @@ def PlotUnivariateFeature(Dataset:pd.DataFrame,Feature:str,Log10:bool=True) -> F
     _title_fig = f'Distribution of {_feature_name}'
     SetLabels(axes,_title_fig,_x_label)
 
+    axes.grid(axis='x',visible=True,linestyle='--',linewidth=1,alpha=0.75)
+
     return fig
 
 def PlotBivariateFeatures(Dataset:pd.DataFrame,Feature_X:str,Feature_Y:str,Log10_X:bool=True,Log10_Y:bool=False) -> Figure:
@@ -168,6 +170,8 @@ def PlotBivariateFeatures(Dataset:pd.DataFrame,Feature_X:str,Feature_Y:str,Log10
 
     _title_fig = f'Relation Between {PrettyFeatureNames[Feature_X]} and\n{PrettyFeatureNames[Feature_Y]}'
     SetLabels(axes,_title_fig,_x_label,_y_label)
+
+    axes.grid(axis='both',visible=True,linestyle='--',linewidth=1,alpha=0.25)
 
     return fig
 
@@ -216,5 +220,6 @@ def PlotHueBivariateFeatures(Dataset:pd.DataFrame,Feature_X:str,Feature_Y:str,Lo
     SetLabels(axes,_title_fig,_x_label,_y_label)
 
     axes.legend(title=PrettyFeatureNames[_hue],loc='lower right',fontsize=18,title_fontsize=20)
+    axes.grid(axis='both',visible=True,linestyle='--',linewidth=1,alpha=0.25)
 
     return fig
